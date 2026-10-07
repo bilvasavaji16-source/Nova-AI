@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 180px;
+            height: 100vh;
+            background: #111;
+            padding: 20px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background: #333;
+        }
+
+        .main {
+            margin-left: 220px;
+            padding: 30px;
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            left: 240px;
+            right: 30px;
+            display: flex;
+        }
+
+        .chat-box input {
+            flex: 1;
+            padding: 15px;
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .chat-box button {
+            margin-left: 10px;
+            padding: 15px 25px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .chat-box button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <button>New Chat</button>
+        <button>Chats</button>
+        <button>Settings</button>
+        <button>About Nova</button>
+    </div>
+
+    <div class="main">
+        <h1>Nova AI</h1>
+        <p>Your AI assistant.</p>
+    </div>
+
+    <div class="chat-box">
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Message Nova AI..."
+        >
+
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById("messageInput");
+            const message = input.value.trim();
+
+            if (message !== "") {
+                alert("You sent: " + message);
+                input.value = "";
+            }
+        }
+
+        document.getElementById("messageInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
